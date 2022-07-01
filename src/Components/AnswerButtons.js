@@ -1,12 +1,14 @@
 import React from "react";
 import '../css/answerbuttons.css';
 
-function AnswerButtons({ answers, correctNumber, nextLevel, theme }) {
+function AnswerButtons({ answers, correctNumber, nextLevel, theme, setSeconds, seconds }) {
 
     //nextLevel gets called at Root if value is correct
     const isCorrect = (value) => {
         if(value === correctNumber) {
             nextLevel()
+          } else {
+            setSeconds(seconds - 1)
           }
     }
 
