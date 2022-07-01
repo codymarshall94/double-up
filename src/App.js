@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
 import Button from "react-bootstrap/Button";
-import { IconContext } from "react-icons";
 import { BsFillSunFill } from 'react-icons/bs';
 import Timer from "./Components/Timer";
 import LevelCounter from "./Components/LevelCounter";
