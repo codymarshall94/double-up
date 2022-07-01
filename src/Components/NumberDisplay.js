@@ -1,18 +1,11 @@
-import React from 'react';
-import Button from 'react-bootstrap/Button';
+import React from "react";
 
-const min = 1;
-const max = 10;
-
-function NumberDisplay({randomNumber, number, toggleDisable}) {
-    
-
+function NumberDisplay({ gameActive, number }) {
   return (
     <div>
-        <Button onClick={() => randomNumber(min, max)} disabled={toggleDisable}>Start</Button>
-        <div>{number}</div>
+      <div>{number !== 0 && gameActive ? number : null}</div>
     </div>
-  )
+  );
 }
 
-export default NumberDisplay
+export default NumberDisplay;
