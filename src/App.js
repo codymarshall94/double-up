@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import Button from "react-bootstrap/Button";
-import { BsFillSunFill } from 'react-icons/bs';
+import { BsFillSunFill } from "react-icons/bs";
 import Timer from "./Components/Timer";
 import LevelCounter from "./Components/LevelCounter";
 import GameOverModal from "./Components/GameOverModal";
@@ -21,8 +21,8 @@ function App() {
   let max = level * 5;
 
   const themeToggler = () => {
-    theme === 'light' ? setTheme("dark") : setTheme("light");
-  }
+    theme === "light" ? setTheme("dark") : setTheme("light");
+  };
 
   const handleClose = () => setShowGameOverModal(false);
   const handleShow = () => setShowGameOverModal(true);
@@ -66,10 +66,24 @@ function App() {
   //const handleShowModal = () => toggleModal(!toggleModal);
 
   return (
-    <div className={theme === 'light' ? "light game-container" : "game-container"}>
-        <BsFillSunFill onClick={() => {themeToggler()}}/>
+    <div
+      className={theme === "light" ? "light game-container" : "game-container"}
+    >
+      <BsFillSunFill
+        onClick={() => {
+          themeToggler();
+        }}
+      />
       <div className="game-header">
-        <header className={theme === 'light' ? "light App-header game-item" : "App-header game-item"}>Double Up!</header>
+        <header
+          className={
+            theme === "light"
+              ? "light App-header game-item"
+              : "App-header game-item"
+          }
+        >
+          Double Up!
+        </header>
       </div>
 
       <div className="game-item">
@@ -83,10 +97,17 @@ function App() {
         />
       </div>
       <div className="game-item">
-        <NumberDisplay number={number} gameActive={gameActive} theme={theme}/>
+        <NumberDisplay number={number} gameActive={gameActive} theme={theme} />
       </div>
       <div className="game-item">
-        <AnswerButtons answers={answers} nextLevel={nextLevel} correctNumber={correctNumber} theme={theme}/>
+        <AnswerButtons
+          answers={answers}
+          nextLevel={nextLevel}
+          correctNumber={correctNumber}
+          theme={theme}
+          setSeconds={setSeconds}
+          seconds={seconds}
+        />
       </div>
       <div className="game-item">
         {gameActive === false ? (
@@ -98,7 +119,7 @@ function App() {
         showGameOverModal={showGameOverModal}
         handleClose={handleClose}
         resetGame={resetGame}
-  />
+      />
     </div>
   );
 }
