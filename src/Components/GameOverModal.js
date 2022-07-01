@@ -2,20 +2,17 @@ import React from 'react'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button';
 
+function GameOverModal({level, showGameOverModal, handleClose, resetGame}) {
+  
 
-
-function GameOverModal({resetGame, toggleModal, setToggleModal, level}) {
- // const  [highScore, setHighScore] = useState([]);
- const handleToggleModal = () => {
-  setToggleModal(!toggleModal);
- }
   return (
-    <div className='d-flex align-items-center h-100'>
+    <div className='d-flex align-items-center'>
       <Modal
-          show={toggleModal}
-          onHide={handleToggleModal}
+          show={showGameOverModal}
+          onHide={handleClose}
           backdrop="static"
           keyboard={false}
+          centered
         >
           <Modal.Header>
             <Modal.Title>Modal title</Modal.Title>
@@ -29,10 +26,7 @@ function GameOverModal({resetGame, toggleModal, setToggleModal, level}) {
             </div>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={setToggleModal(!toggleModal)}>
-              Close
-            </Button>
-            <Button variant="primary" onClick={() => resetGame}>Try Again</Button>
+            <Button variant="primary" onClick={() => resetGame()}>Try Again</Button>
           </Modal.Footer>
         </Modal>
     </div>
