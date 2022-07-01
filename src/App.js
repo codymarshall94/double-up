@@ -14,7 +14,6 @@ function App() {
   const [answers, setAnswers] = useState();
   const [level, setLevel] = useState(1);
   const [seconds, setSeconds] = useState(5);
-  const [toggleModal, setToggleModal] = useState(false);
   let min = level;
   let max = level * 5;
 
