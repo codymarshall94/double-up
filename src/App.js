@@ -3,7 +3,7 @@ import "./App.css";
 import Button from "react-bootstrap/Button";
 import Timer from "./Components/Timer";
 import LevelCounter from "./Components/LevelCounter";
-import GameOverModal from "./Components/GameOverModal";
+//import GameOverModal from "./Components/GameOverModal";
 import NumberDisplay from "./Components/NumberDisplay";
 import AnswerButtons from "./Components/AnswerButtons";
 
@@ -32,11 +32,11 @@ function App() {
     randomNumber();
   };
 
-  const resetGame = () => {
+  /*const resetGame = () => {
     setToggleModal(!toggleModal);
     setNumber(0);
     setLevel(1);
-  };
+  };*/
 
   const randomNumber = () => {
     let numberRandom = Math.floor(Math.random() * (max - min) + min);
