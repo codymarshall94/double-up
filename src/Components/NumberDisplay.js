@@ -1,9 +1,9 @@
 import React from "react";
 
-function NumberDisplay({ gameActive, number }) {
+function NumberDisplay({ gameActive, number, theme }) {
   return (
-    <div>
-      <div>{number !== 0 && gameActive ? number : null}</div>
+    <div className={theme === 'light' ? "light" : "dark"}>
+      {number !== 0 && gameActive ? number : null}
     </div>
   );
 }

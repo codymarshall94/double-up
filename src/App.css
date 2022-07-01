@@ -59,3 +59,12 @@
 .modal-styles {
     background-color: rgb(41,41,41);
 }
+
+.light {
+    background-color: white;
+    color: black;
+}
+
+.sun-icon {
+    color: yellow;
+}
