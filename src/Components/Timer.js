@@ -1,26 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
-const Timer = ({isActive, reset, setSeconds, seconds}) => {
-  
+const Timer = ({gameActive, setGameActive, seconds, setSeconds}) => {
+
   useEffect(() => {
     let interval = null
-    if(isActive) {
+    if(gameActive) {
       interval = setInterval(() => {
         setSeconds(seconds - 1);
       }, 1000);
-    }
-    if(isActive && seconds == 0) {
-      reset();
+    } 
+    if(gameActive && seconds === 0) {
+      setGameActive(false);
     }
     return () => clearInterval(interval);
   });
 
   return (
-    <div className="app">
-      <div className="time">
+    <div>
+      <div className={`time timer-container ${seconds < 4 && seconds >= 2 ? 'timer-orange' : seconds < 2 ? 'timer-red' : "" } `}>
         {seconds}s
       </div>
     </div>
+     
   );
 };
 
