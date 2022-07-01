@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import { BsFillSunFill } from 'react-icons/bs';
 import Timer from "./Components/Timer";
 import LevelCounter from "./Components/LevelCounter";
-//import GameOverModal from "./Components/GameOverModal";
+import GameOverModal from "./Components/GameOverModal";
 import NumberDisplay from "./Components/NumberDisplay";
 import AnswerButtons from "./Components/AnswerButtons";
 
@@ -16,12 +16,16 @@ function App() {
   const [level, setLevel] = useState(1);
   const [seconds, setSeconds] = useState(5);
   const [theme, setTheme] = useState("dark");
+  const [showGameOverModal, setShowGameOverModal] = useState(false);
   let min = level;
   let max = level * 5;
 
   const themeToggler = () => {
     theme === 'light' ? setTheme("dark") : setTheme("light");
   }
+
+  const handleClose = () => setShowGameOverModal(false);
+  const handleShow = () => setShowGameOverModal(true);
 
   const generateAnswers = (answer) => {
     let answerOptions = [];
@@ -37,11 +41,13 @@ function App() {
     randomNumber();
   };
 
-  /*const resetGame = () => {
-    setToggleModal(!toggleModal);
+  const resetGame = () => {
+    handleClose();
     setNumber(0);
     setLevel(1);
-  };*/
+    setSeconds(5);
+    setAnswers(null);
+  };
 
   const randomNumber = () => {
     let numberRandom = Math.floor(Math.random() * (max - min) + min);
@@ -73,6 +79,7 @@ function App() {
           setGameActive={setGameActive}
           setSeconds={setSeconds}
           seconds={seconds}
+          handleShow={handleShow}
         />
       </div>
       <div className="game-item">
@@ -86,12 +93,12 @@ function App() {
           <Button onClick={() => gameStart()}>Start</Button>
         ) : null}
       </div>
-      {/*<GameOverModal
-        toggleModal={toggleModal}
+      <GameOverModal
         level={level}
-        setToggleModal={setToggleModal}
+        showGameOverModal={showGameOverModal}
+        handleClose={handleClose}
         resetGame={resetGame}
-  />*/}
+  />
     </div>
   );
 }
