@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-const Timer = ({gameActive, setGameActive, seconds, setSeconds, handleShow}) => {
+const Timer = ({saveHighScore, gameActive, setGameActive, seconds, setSeconds, handleShow}) => {
 
   useEffect(() => {
     let interval = null
@@ -12,6 +12,7 @@ const Timer = ({gameActive, setGameActive, seconds, setSeconds, handleShow}) => 
     if(gameActive && seconds === 0) {
       setGameActive(false);
       handleShow();
+      saveHighScore()
     }
     return () => clearInterval(interval);
   });
