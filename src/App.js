@@ -20,12 +20,17 @@ function App() {
   let min = level;
   let max = level * 5;
 
+
   const themeToggler = () => {
     theme === "light" ? setTheme("dark") : setTheme("light");
   };
 
+  //Controlling the game over modal
+
   const handleClose = () => setShowGameOverModal(false);
   const handleShow = () => setShowGameOverModal(true);
+
+  //Create an array of answers that will be displayed as buttons with 2 wrong and 1 right
 
   const generateAnswers = (answer) => {
     let answerOptions = [];
@@ -36,10 +41,14 @@ function App() {
     setAnswers(shuffled);
   };
 
+  //Start button calls this function
+
   const gameStart = () => {
     setGameActive(true);
     randomNumber();
   };
+
+  //Reset gets called at the game over modal
 
   const resetGame = () => {
     handleClose();
@@ -49,8 +58,10 @@ function App() {
     setAnswers(null);
   };
 
+  //Creates our number whenever game is started or next level 
+
   const randomNumber = () => {
-    let numberRandom = Math.floor(Math.random() * (max - min) + min);
+    let numberRandom = Math.floor(Math.random() * (max - min + 1) + min);
     let numberDoubled = numberRandom * 2;
     setNumber(numberRandom);
     setCorrectNumber(numberDoubled);
@@ -62,8 +73,6 @@ function App() {
     setLevel(level + 1);
     setSeconds(seconds + 1);
   };
-
-  //const handleShowModal = () => toggleModal(!toggleModal);
 
   return (
     <div
