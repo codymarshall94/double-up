@@ -79,14 +79,13 @@ function App() {
         />
       </div>
       <div className="game-item">
-        <NumberDisplay number={number} gameActive={gameActive} theme={theme} />
+        <NumberDisplay number={number} gameActive={gameActive}/>
       </div>
       <div className="game-item">
         <AnswerButtons
           answers={answers}
           nextLevel={nextLevel}
           correctNumber={correctNumber}
-          theme={theme}
           setSeconds={setSeconds}
           seconds={seconds}
         />
