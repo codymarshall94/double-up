@@ -61,7 +61,7 @@ function App() {
   //Creates our number whenever game is started or next level 
 
   const randomNumber = () => {
-    let numberRandom = Math.floor(Math.random() * (max - min + 1) + min);
+    let numberRandom = Math.floor(Math.random() * (max - min) + min);
     let numberDoubled = numberRandom * 2;
     setNumber(numberRandom);
     setCorrectNumber(numberDoubled);
