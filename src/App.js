@@ -14,7 +14,6 @@ function App() {
   const [answers, setAnswers] = useState();
   const [level, setLevel] = useState(1);
   const [seconds, setSeconds] = useState(5);
-  const [theme, setTheme] = useState("dark");
   const [showGameOverModal, setShowGameOverModal] = useState(false);
   let min = level;
   let max = level * 5;
