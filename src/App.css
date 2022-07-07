@@ -60,6 +60,13 @@
     background-color: rgb(41,41,41);
 }
 
+.modal-item {
+    text-align: center;
+    display: inline-block;
+    padding-bottom: 1em;
+}
+
+
 .light {
     background-color: white;
     color: black;

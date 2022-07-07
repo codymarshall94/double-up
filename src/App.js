@@ -15,6 +15,8 @@ function App() {
   const [level, setLevel] = useState(1);
   const [seconds, setSeconds] = useState(5);
   const [showGameOverModal, setShowGameOverModal] = useState(false);
+  const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+
   let min = level;
   let max = level * 5;
 
@@ -62,6 +64,19 @@ function App() {
     setSeconds(seconds + 1);
   };
 
+  
+
+  const saveHighScore = () => {
+    const score = {
+      score: level
+    };
+    highScores.push(score);
+    highScores.sort((a,b) => b.score - a.score);
+    highScores.splice(5);
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+    console.log(highScores);
+  };
+  
   return (
     <div className="game-container">
       <div className="game-header">
@@ -71,6 +86,7 @@ function App() {
       <div className="game-item">
         <LevelCounter level={level} />
         <Timer
+          saveHighScore={saveHighScore}
           gameActive={gameActive}
           setGameActive={setGameActive}
           setSeconds={setSeconds}
@@ -100,6 +116,7 @@ function App() {
         showGameOverModal={showGameOverModal}
         handleClose={handleClose}
         resetGame={resetGame}
+        highScores={highScores}
       />
     </div>
   );
