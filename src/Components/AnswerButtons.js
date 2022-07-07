@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import '../css/answerbuttons.css';
 
 function AnswerButtons({ answers, correctNumber, nextLevel, theme, setSeconds, seconds }) {
-  const [selected, setSelected] = useState(0);
+  const [selected, setSelected] = useState(null);
   let answerCorrect = true;
 
     //nextLevel gets called at Root if value is correct
@@ -10,7 +10,7 @@ function AnswerButtons({ answers, correctNumber, nextLevel, theme, setSeconds, s
     setSelected(value)
       if(value === correctNumber) {
           nextLevel()
-          setSelected(0);
+          setSelected(null);
         } else {
           setSeconds(seconds - 1)
           answerCorrect = false;
@@ -20,14 +20,14 @@ function AnswerButtons({ answers, correctNumber, nextLevel, theme, setSeconds, s
 
   const changeAnswerTrue = () => {
       answerCorrect= true;
-      setSelected(0);
+      setSelected(null);
     }
 
   if (answers) {
     return (
       <div className="answers-container">
         {answers.map((answer, index) => (
-          <button className={answerCorrect && selected !== answer ? "answer-button" : "answer-button answer-incorrect" } key={index} onClick={() => isCorrect(answer)}>{answer}</button>
+          <button className={answerCorrect && selected !== answer ? "answer-button" : "answer-button answer-incorrect"} key={index} onClick={() => isCorrect(answer)}>{answer}</button>
         ))}
       </div>
     );
