@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
 import Button from "react-bootstrap/Button";
-import { BsFillSunFill } from "react-icons/bs";
 import Timer from "./Components/Timer";
 import LevelCounter from "./Components/LevelCounter";
 import GameOverModal from "./Components/GameOverModal";
@@ -20,18 +19,11 @@ function App() {
   let min = level;
   let max = level * 5;
 
-
-  const themeToggler = () => {
-    theme === "light" ? setTheme("dark") : setTheme("light");
-  };
-
   //Controlling the game over modal
-
   const handleClose = () => setShowGameOverModal(false);
   const handleShow = () => setShowGameOverModal(true);
 
   //Create an array of answers that will be displayed as buttons with 2 wrong and 1 right
-
   const generateAnswers = (answer) => {
     let answerOptions = [];
     let optionOne = answer - 2;
@@ -42,14 +34,12 @@ function App() {
   };
 
   //Start button calls this function
-
   const gameStart = () => {
     setGameActive(true);
     randomNumber();
   };
 
   //Reset gets called at the game over modal
-
   const resetGame = () => {
     handleClose();
     setNumber(0);
@@ -58,8 +48,7 @@ function App() {
     setAnswers(null);
   };
 
-  //Creates our number whenever game is started or next level 
-
+  //Creates our number whenever game is started or next level
   const randomNumber = () => {
     let numberRandom = Math.floor(Math.random() * (max - min) + min);
     let numberDoubled = numberRandom * 2;
@@ -75,24 +64,9 @@ function App() {
   };
 
   return (
-    <div
-      className={theme === "light" ? "light game-container" : "game-container"}
-    >
-      <BsFillSunFill
-        onClick={() => {
-          themeToggler();
-        }}
-      />
+    <div className="game-container">
       <div className="game-header">
-        <header
-          className={
-            theme === "light"
-              ? "light App-header game-item"
-              : "App-header game-item"
-          }
-        >
-          Double Up!
-        </header>
+        <header className="App-header game-item">Double Up!</header>
       </div>
 
       <div className="game-item">
