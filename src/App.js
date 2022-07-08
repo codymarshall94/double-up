@@ -15,7 +15,7 @@ function App() {
   const [level, setLevel] = useState(1);
   const [seconds, setSeconds] = useState(5);
   const [showGameOverModal, setShowGameOverModal] = useState(false);
-  const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+  const highScores = JSON.parse(localStorage.getItem("highScores"));
 
   let min = level;
   let max = level * 5;

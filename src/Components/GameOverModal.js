@@ -29,13 +29,14 @@ function GameOverModal({
             <div className="modal-item">
               <span>You Reached Level {level}</span>
             </div>
-            <div className="modal-item">
+            { highScores ? <div className="modal-item">
               <span>
                 {level < highScores[0].score
                   ? null
                   : `New High Score ${highScores[0].score}`}
               </span>
-            </div>
+            </div> : null }
+            
             <div className="container d-flex justify-content-center flex-column w-50">
               <span className="pb-3 text-center"><AiFillStar />High Scores</span>
               {highScores ? <ol type="1">
