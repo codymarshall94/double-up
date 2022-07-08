@@ -38,11 +38,12 @@ function GameOverModal({
             </div>
             <div className="container d-flex justify-content-center flex-column w-50">
               <span className="pb-3 text-center"><AiFillStar />High Scores</span>
-              <ol type="1">
+              {highScores ? <ol type="1">
                 {highScores.map((item, index) => (
                   <li key={index}>{item.score}</li>
                 ))}
-              </ol>
+              </ol> : "No High Scores"}
+              
             </div>
           </div>
         </Modal.Body>
